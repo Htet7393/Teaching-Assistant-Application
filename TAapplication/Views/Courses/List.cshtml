@@ -1,0 +1,134 @@
+﻿<!--
+  Author:    Htet Naing
+  Partner:   None
+  Date:      19 NOV 2022
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Htet Naing - This work may not be copied for use in Academic Coursework.
+
+  I, Htet Naing, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+     [This file contains HTML data for the List page]
+-->
+
+@model IEnumerable<TAapplication.Models.Course>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+@section Scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="~/js/course.js" type="text/javascript"></script>
+}
+
+<div class="card bg-secondary" style="text-align:center">
+    <h1 style="color:darkblue">Applicant List</h1>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessorUnid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeAndDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment)
+            </th>
+            @if (User.IsInRole("Administrator"))
+            {
+                <th>
+                   @Html.DisplayNameFor(model => model.Note)
+                </th>         
+                <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Section)
+            </td>
+            <td>
+                <a asp-action="View" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Description)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessorUnid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAndDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enrollment)
+            </td>
+            @if (User.IsInRole("Administrator"))
+            {
+                <td>
+                   <button class="btn-sm btn-outline-blue" onclick="change_note('@item.Id')">@Html.DisplayFor(modelItem => item.Note)</button>
+                </td>
+                <td>
+                   <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                   <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <span class="d-md-grid"><a class="btn btn-outline-primary" type="button" asp-action="Create">Create New</a></span>
+</p>

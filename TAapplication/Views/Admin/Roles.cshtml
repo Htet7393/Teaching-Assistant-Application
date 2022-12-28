@@ -1,0 +1,95 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TAapplication.Areas.Data
+@inject UserManager<TAUser> UserManager
+@inject RoleManager<IdentityRole> roleManager
+
+
+
+
+@{
+    var users = UserManager.Users.ToArray();
+    TAUser user = await UserManager.FindByNameAsync(User.Identity.Name);
+    var roles = await UserManager.GetRolesAsync(user);
+    var Roles = roleManager.Roles.ToArray();
+    string ID = user.Unid;
+    int val = roles.Count;   
+}
+
+@section Styles
+{
+  @*  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">*@
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+
+}
+
+@section Scripts
+{
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/roles.js" type="text/javascript"></script>
+   
+}
+   
+<h1>Data Table</h1>
+<table id="table" class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Uid</th>
+            <th>Applicant</th>
+            <th>Admin</th>
+            <th>Professor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(TAUser u in users)
+        {
+         bool ap = await UserManager.IsInRoleAsync(u, "Applicant");
+         bool pr = await UserManager.IsInRoleAsync(u, "Professor");
+         bool ad = await UserManager.IsInRoleAsync(u, "Administrator");
+        <tr>
+            <td>@u.Name</td>
+            <td>@u.Unid</td>
+            <td>
+                @if(ap)
+                {
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="change_role('@u.Id','Applicant')" checked>
+                }
+                else
+                {
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="change_role('@u.Id','Applicant')">
+                }
+                
+            </td>
+            <td>
+                @if (ad)
+                {
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="change_role('@u.Id','Administrator')" checked>
+                }
+                else
+                {
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="change_role('@u.Id','Administrator')">
+                }
+            </td>
+            <td>
+                @if (pr)
+                {
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="change_role('@u.Id','Professor')" checked>
+                }
+                else
+                {
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="change_role('@u.Id','Professor')">
+                }
+            </td>         
+        </tr>
+        }            
+    </tbody>
+</table>
+
+
+
+
+
+
+

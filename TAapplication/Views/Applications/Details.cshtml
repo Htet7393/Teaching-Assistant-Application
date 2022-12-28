@@ -1,0 +1,148 @@
+﻿<!--
+  Author:    Htet Naing
+  Partner:   None
+  Date:      10 NOV 2022
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Htet Naing - This work may not be copied for use in Academic Coursework.
+
+  I, Htet Naing, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+     [This file contains HTML data for the Details page]
+-->
+
+@using Microsoft.AspNetCore.Identity
+@using TAapplication.Areas.Data
+@using TAapplication.Data;
+@model TAapplication.Models.Application
+@inject UserManager<TAUser> UserManager
+@inject RoleManager<IdentityRole> roleManager
+@inject ApplicationDbContext db_context
+
+@{
+    ViewData["Title"] = "Details";
+}
+@{
+    var appID = Model.Id;
+    var apps = db_context.Application.ToArray();
+    var users = db_context.Users.ToArray();
+    string userName = "";
+    string userUID = "";
+
+    foreach(var app in apps)
+    {
+        if(appID == app.Id)
+        {
+            userName = app.User.Name;
+            userUID = app.User.Unid;
+            break;
+        }
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossorigin="anonymous">
+    <title>Application Details</title>
+    <style type="text/css">
+        h5{
+            text-align:center;
+            color:brown;
+        }
+    </style>
+</head>
+<body>
+    @*<h4><span class="badge bg-success">Applicant's Name</span><span class="badge bg-primary">@userName</span></h4>
+    <h4><span class="badge bg-success">Applicant's Uid</span><span class="badge bg-primary">@userUID</span></h4>*@
+    <div class="card" style="background-color:aquamarine">
+        <div class="card-body">
+            <h5>Applicant's Name: <span style="color:blueviolet">@userName</span></h5>
+        </div>
+        <div class="card-body">
+            <h5>Applicant's UID: <span style="color:blueviolet">@userUID</span></h5>
+        </div>
+    </div>
+    <div class="container-fluid border">
+        <div class="row border">
+            <div class="col-sm-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.Pursuing)</div>
+            <div class="col-sm-8 py-2" style="background-color:azure;">@Html.DisplayFor(model => model.Pursuing)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.Department)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;">   @Html.DisplayFor(model => model.Department)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.GPA)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;"> @Html.DisplayFor(model => model.GPA)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.Hours)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;">@Html.DisplayFor(model => model.Hours)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.Availability)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;">@Html.DisplayFor(model => model.Availability)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.CompletedSemester)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;">@Html.DisplayFor(model => model.CompletedSemester)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-4" style="background-color:bisque;">@Html.DisplayNameFor(model => model.PersonalStatement)</div>
+            <div class="col-md-8 py-4" style="background-color:azure;">@Html.DisplayFor(model => model.PersonalStatement)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.TransferSchool)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;">@Html.DisplayFor(model => model.TransferSchool)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.LinkedIn)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;">@Html.DisplayFor(model => model.LinkedIn)</div>
+        </div>
+        <div class="row border">
+            <div class="col-md-4 py-2" style="background-color:bisque;">@Html.DisplayNameFor(model => model.Resume)</div>
+            <div class="col-md-8 py-2" style="background-color:azure;"> @Html.DisplayFor(model => model.Resume)</div>
+        </div>
+    </div>
+    <div style="text-align:center">
+        @if((User.IsInRole("Administrator")) || User.IsInRole("Applicant"))
+        {
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+        <x>|</x>
+        <a asp-action="Delete" asp-route-id="@Model?.Id">Delete</a>
+        <x>|</x>
+        }
+        <a asp-action="List">Back to List</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,239 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TAapplication.Areas.Data
+@using TAapplication.Data;
+@inject ApplicationDbContext db_context
+@inject UserManager<TAUser> _um
+@inject RoleManager<IdentityRole> _rm
+@{
+    var apps = db_context.Application.ToArray();
+    var users = db_context.Users.ToArray();
+    var avails = db_context.Availability.ToArray();
+    String userID = "";
+    int ID = 0;
+    int avID = 0;
+    bool found = false;
+    string name = "";
+    int firstCourseID = 0;
+    var courses = db_context.Course.ToArray();
+    firstCourseID = courses[0].Id;
+}
+
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TAapplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/TAApplication.styles.css" rel="stylesheet">
+    @await RenderSectionAsync("Styles", required:false)
+    @await RenderSectionAsync("Scripts", required:false)
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TAapplication</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>                      
+                        @if (User.IsInRole("Applicant"))
+                        {// gotta check if there is an application
+                            @foreach (var u in users)
+                            {
+                                if (u.UserName == User.Identity.Name)
+                                {
+                                    userID = u.Id;
+                                    name = u.Name;
+                                    break;
+                                }
+                            }
+                            @foreach (var app in apps)
+                            {
+                                if (userID == app.User.Id)
+                                {
+                                    found = true;
+                                    ID = app.Id;
+                                    break;
+                                }
+                            }
+                            @if(found)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Applications" asp-action="Details" asp-route-id="@ID">Details</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Applications" asp-action="Create">Create</a>
+                                </li>
+                            }                           
+                        }else if(User.IsInRole("Administrator"))
+                        {
+                            @foreach (var u in users)
+                            {
+                                if (u.UserName == User.Identity.Name)
+                                {
+                                    userID = u.Id;
+                                    name = u.Name;
+                                    break;
+                                }
+                            }
+                            <li class="nav-item"><a class="nav-link text-dark" asp-controller="Admin" asp-action="Roles">Roles</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-controller="Applications" asp-action="Index">User List</a></li>
+                        }else if(User.IsInRole("Professor"))
+                        {
+                            @foreach (var u in users)
+                            {
+                                if (u.UserName == User.Identity.Name)
+                                {
+                                    userID = u.Id;
+                                    name = u.Name;
+                                    break;
+                                }
+                            }
+                            <li class="nav-item"><a class="nav-link text-dark" asp-controller="Applications" asp-action="List">Applications</a></li>
+                        }
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">TA</a>                      
+                               <ul class="dropdown-menu">                                                                                     
+                                   <li><h5 class="dropdown-header">@name</h5></li>
+                                   <li><div class="dropdown-divider"></div></li>
+
+                                 @foreach (var u in users)
+                                {
+                                    if (u.UserName == User.Identity.Name)
+                                    {
+                                        userID = u.Id;
+                                        break;
+                                    }
+                                }
+                                @foreach (var av in avails)
+                                {
+                                    if (userID == av.User.Id)
+                                    {
+                                        avID = av.Id;
+                                        break;
+                                    }
+                                }
+                                @if(User.IsInRole("Administrator"))
+                                {
+                                    <li><a class="dropdown-item" asp-controller="Admin" asp-action="EnrollmentTrends">Enrollment Trend</a></li>
+                                }
+                                <li><a class="dropdown-item" asp-controller="Availability" asp-action="Index" asp-route-id="@avID">Availability</a></li>
+
+                                   <li><a class="dropdown-item">PS6 &raquo;</a>
+                                        <ul class="dropdown-menu submenu">
+                                        @if (User.IsInRole("Administrator") || User.IsInRole("Professor"))
+                                        {
+                                            <li><a asp-controller="Courses" asp-action="List" class="dropdown-item">Course List</a></li>
+                                        }
+                                        <li><a asp-controller="Courses" asp-action="View" asp-route-id="@firstCourseID" class="dropdown-item">First Course Details</a></li>
+                                        @if (User.IsInRole("Administrator"))
+                                        {
+                                            <li><a asp-controller="Courses" asp-action="Update" asp-route-id="@firstCourseID" class="dropdown-item">Update First Course</a></li>
+                                            <li><a asp-controller="Courses" asp-action="Create" class="dropdown-item">Create New</a></li>
+                                        }
+                                    </ul>
+                                   </li>
+                                   <li><a class="dropdown-item">PS5 &raquo;</a> 
+                                     <ul class="dropdown-menu submenu">
+                                        <li><a asp-controller="Home" asp-action="Index" class="dropdown-item">Application Index</a></li>
+                                        <li><a asp-controller="Applications" asp-action="List" class="dropdown-item">Application List</a></li>
+                                        <li>@if(User.IsInRole("Applicant"))
+                                            {
+                                                if (User.Identity.Name == "u0000000@utah.edu")
+                                                {
+                                                    @foreach (var u in users)
+                                                    {
+                                                        if (u.UserName == User.Identity.Name)
+                                                        {
+                                                            userID = u.Id;
+                                                            break;
+                                                        }
+                                                    }
+                                                    @foreach (var app in apps)
+                                                    {
+                                                        if (userID == app.User.Id)
+                                                        {
+                                                            ID = app.Id;
+                                                            break;
+                                                        }
+                                                    }
+                                                    @if (ID != 0)
+                                                    {
+                                                        <a class="dropdown-item" asp-controller="Applications" asp-action="Details" asp-route-id="@ID">Application Details</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a class="dropdown-item" asp-controller="Applications" asp-action="Create">Create New</a>
+                                                    }
+                                               
+                                            }
+                                            }
+                                        </li>
+                                     </ul>
+                                   </li>
+                                <li>
+                                   @if (User.IsInRole("Administrator"))
+                                    {
+                                        <a class="dropdown-item">ADMIN &raquo;</a>
+                                        <ul class="dropdown-menu submenu">                                  
+                                            <li><a asp-controller="Admin" asp-action="Roles" class="dropdown-item">Roles</a></li>
+                                            <li><a asp-controller="Applications" asp-action="Index" class="dropdown-item">User List</a></li>
+                                        </ul>
+                                    }
+                                </li>                                                      
+                                <li>
+                                    <a class="dropdown-item">OLD &raquo;</a>
+                                    <ul class="dropdown-menu submenu">
+                                        <li><a href="/Old/ApplicationList" class="dropdown-item">Application List</a></li>
+                                        <li><a href="/Old/ApplicationDetails" class="dropdown-item">Application Details</a></li>  
+                                         @if (User.IsInRole("Applicant"))
+                                          {
+                                            <li class="nav-item"><a href="/Old/ApplicationCreate" class="dropdown-item">Application Create</a></li>
+                                          }                                                  
+                                    </ul>
+                                </li>                                                     
+                               </ul>
+                          </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - TAapplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+   @* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

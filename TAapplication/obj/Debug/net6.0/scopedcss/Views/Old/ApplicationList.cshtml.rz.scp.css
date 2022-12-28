@@ -1,0 +1,74 @@
+/**
+ * Author:    Htet Naing
+ * Partner:   None
+ * Date:      26 OCT 2022
+ * Course:    CS 4540, University of Utah, School of Computing
+ * Copyright: CS 4540 and Htet Naing - This work may not be copied for use in Academic Coursework.
+ *
+ * I, Htet Naing, certify that I wrote this code from scratch and did 
+ * not copy it in part or whole from another source.  Any references used 
+ * in the completion of the assignment are cited in my README file and in
+ * the appropriate method header.
+ *
+ * File Contents
+ *
+ *    This file contains CSS code for Application List page 
+ *         
+ */
+
+
+
+/**
+ * Attributes for the applicant's data table
+ */
+#applicants_table[b-wfjprlhulx] {
+    font-family: 'Arial';
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    /**
+ * Attributes for the applicant's table's header and data
+ * Font styles, font size, color etc
+ */
+    #applicants_table td[b-wfjprlhulx], th[b-wfjprlhulx] {
+        border: 2px solid black;
+        text-align: left;
+        padding: 10px;
+    }
+
+    /**
+ * Attributes for the applicant's table's header
+ */
+    #applicants_table th[b-wfjprlhulx] {
+        text-align: center;
+        font-size: 120%;
+        font-weight: bold;
+        background-color: bisque;
+    }
+
+    /**
+ * Coloring the applicant's table rows 
+ */
+    #applicants_table tr:nth-child(even)[b-wfjprlhulx] {
+        background-color: lightblue;
+    }
+
+/**
+ * Attributes for the applicant's table data
+ */
+#ta_data[b-wfjprlhulx] {
+    font-family: 'Arial';
+    font-size: 120%;
+    font-weight: bold;
+    background-color: lightgreen;
+    border: 1px solid black;
+}
+
+    /**
+ * Attributes for the numbers that represents the number of teaching assistants
+ */
+    #ta_data num[b-wfjprlhulx] {
+        font-size: 150%;
+        color: maroon;
+    }
