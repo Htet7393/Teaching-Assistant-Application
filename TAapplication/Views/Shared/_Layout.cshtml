@@ -18,8 +18,7 @@
     firstCourseID = courses[0].Id;
 }
 
-    
-
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +39,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TAapplication</a>
+                <div id="nav-logo">
+                  <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Teaching Assistant Application</a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -198,7 +199,7 @@
                                         </ul>
                                     }
                                 </li>                                                      
-                                <li>
+                               @* <li>
                                     <a class="dropdown-item">OLD &raquo;</a>
                                     <ul class="dropdown-menu submenu">
                                         <li><a href="/Old/ApplicationList" class="dropdown-item">Application List</a></li>
@@ -208,7 +209,7 @@
                                             <li class="nav-item"><a href="/Old/ApplicationCreate" class="dropdown-item">Application Create</a></li>
                                           }                                                  
                                     </ul>
-                                </li>                                                     
+                                </li>                *@                                     
                                </ul>
                           </li>
                         <li class="nav-item">
@@ -228,8 +229,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - TAapplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container-fluid">
+            &copy; 2023 - Teaching Assistant Application - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
    @* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@

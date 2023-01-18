@@ -10364,19 +10364,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HtetKoNaing\\.nuget\\packages\\": {}
+    "C:\\Users\\u1216649\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HtetKoNaing\\Desktop\\Teaching Assistant Application\\TAapplication\\TAapplication.csproj",
+      "projectUniqueName": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\TAapplication.csproj",
       "projectName": "TAapplication",
-      "projectPath": "C:\\Users\\HtetKoNaing\\Desktop\\Teaching Assistant Application\\TAapplication\\TAapplication.csproj",
-      "packagesPath": "C:\\Users\\HtetKoNaing\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HtetKoNaing\\Desktop\\Teaching Assistant Application\\TAapplication\\obj\\",
+      "projectPath": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\TAapplication.csproj",
+      "packagesPath": "C:\\Users\\u1216649\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\HtetKoNaing\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\u1216649\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10384,6 +10389,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10460,7 +10466,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
