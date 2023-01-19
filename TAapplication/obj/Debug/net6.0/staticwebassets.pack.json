@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\js\\course.js"
     },
     {
+      "Id": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\wwwroot\\js\\list.js",
+      "PackagePath": "staticwebassets\\js\\list.js"
+    },
+    {
       "Id": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\wwwroot\\js\\roles.js",
       "PackagePath": "staticwebassets\\js\\roles.js"
     },

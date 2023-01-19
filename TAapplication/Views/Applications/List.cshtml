@@ -19,11 +19,27 @@
     ViewData["Title"] = "List";
 }
 
-<div class="card bg-secondary" style="text-align:center">
-    <h1 style="color:darkblue">Applicant List</h1>
+@section Styles
+{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="List.css" />
+}
+
+@section Scripts
+    {
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/list.js" type="text/javascript"></script>
+}
+
+
+<div class="card bg-info" style="text-align:center">
+    <h1 style="color:darkblue">Applicants List</h1>
 </div>
 
-<table class="table">
+<br>
+
+<table id="table" class="display" style="width:100%">
     <thead>
         <tr>
             <th>

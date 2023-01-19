@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OLbOqkPOgpc0Ry+WmBulb7OA5yJ/npZZ4T2vHY+wnVY=",
+  "Hash": "Gw6XQhwbc76sQug7MJhT7VqLKL0qZaBtTf3uzineNH0=",
   "Source": "TAapplication",
   "BasePath": "_content/TAapplication",
   "Mode": "Default",
@@ -1188,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\course.js"
+    },
+    {
+      "Identity": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\wwwroot\\js\\list.js",
+      "SourceId": "TAapplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\wwwroot\\",
+      "BasePath": "_content/TAapplication",
+      "RelativePath": "js/list.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\list.js"
     },
     {
       "Identity": "C:\\Users\\u1216649\\Desktop\\ASP\\TAapplication\\wwwroot\\js\\roles.js",

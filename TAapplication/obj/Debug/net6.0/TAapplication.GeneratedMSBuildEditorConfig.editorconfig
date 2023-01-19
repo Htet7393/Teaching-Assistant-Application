@@ -68,10 +68,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRW5yb2xsbWVudFRyZW5kcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Admin/Roles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUm9sZXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Applications/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,14 +82,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Applications/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25zXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Applications/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25zXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Applications/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25zXExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Availability/Index.cshtml]
@@ -143,6 +131,18 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/u1216649/Desktop/ASP/TAapplication/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Admin/Roles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-tzoj593q4w
+
+[C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Applications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-s3cg09wnd2
+
+[C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Applications/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25zXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wat0ct3v5z
 
 [C:/Users/u1216649/Desktop/ASP/TAapplication/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=

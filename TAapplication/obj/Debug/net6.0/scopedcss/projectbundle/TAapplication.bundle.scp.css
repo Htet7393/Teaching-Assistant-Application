@@ -1,3 +1,54 @@
+/* _content/TAapplication/Views/Admin/Roles.cshtml.rz.scp.css */
+
+th[b-tzoj593q4w] {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    align-content: center;
+    color: darkblue;
+   
+}
+
+tr[b-tzoj593q4w] {
+    align-content: center;
+    color: darkblue;   
+}
+
+h1[b-tzoj593q4w] {
+    font-family: 'Times New Roman', Times, serif;
+    align-content: center;
+    color: darkblue;
+    text-align: center;
+}
+/* _content/TAapplication/Views/Applications/Index.cshtml.rz.scp.css */
+
+.card-header[b-s3cg09wnd2] {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: darkblue;
+}
+
+.list-group[b-s3cg09wnd2] {
+    font-family: Arial;
+    font-size: 15px;
+    color: darkblue;
+}
+/* _content/TAapplication/Views/Applications/List.cshtml.rz.scp.css */
+th[b-wat0ct3v5z] {
+    font-family: Arial;
+    font-weight: bold;
+}
+
+h1[b-wat0ct3v5z] {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+tr[b-wat0ct3v5z] {
+    font-family: Arial;
+}
 /* _content/TAapplication/Views/Home/Index.cshtml.rz.scp.css */
 /**
  * Author:    Htet Naing
@@ -223,10 +274,6 @@ button.accept-policy[b-s7k822jb39] {
     position: relative;
 }
 
-.dropdown-menu > li:hover > .submenu[b-s7k822jb39] {
-    display: block;
-}
-
 .dropdown-item > li:hover > .submenu[b-s7k822jb39] {
     display: block;
 }
@@ -241,6 +288,17 @@ button.accept-policy[b-s7k822jb39] {
 .nav-item > li:hover > .submenu[b-s7k822jb39] {
     display: block;
 }
+
+.nav-item[b-s7k822jb39] {
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.nav-item:hover[b-s7k822jb39] {
+    display: block;
+}
+
+
 
 
 

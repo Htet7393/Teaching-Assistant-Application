@@ -55,10 +55,6 @@ button.accept-policy {
     position: relative;
 }
 
-.dropdown-menu > li:hover > .submenu {
-    display: block;
-}
-
 .dropdown-item > li:hover > .submenu {
     display: block;
 }
@@ -73,6 +69,17 @@ button.accept-policy {
 .nav-item > li:hover > .submenu {
     display: block;
 }
+
+.nav-item {
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    display: block;
+}
+
+
 
 
 

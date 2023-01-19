@@ -17,7 +17,9 @@
  */
 
 $(document).ready(function () {
-    $('#table').DataTable();
+    $('#table').DataTable({
+        order: [[1, 'desc']],
+    });
 });
  
 function change_role(id, name) {

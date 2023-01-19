@@ -52,9 +52,6 @@ namespace TAapplication.Data
             }
 
 
-
-
-
             TAUser user1 = new()
             {
                 Unid = "u1234567",

@@ -3,9 +3,6 @@
 @inject UserManager<TAUser> UserManager
 @inject RoleManager<IdentityRole> roleManager
 
-
-
-
 @{
     var users = UserManager.Users.ToArray();
     TAUser user = await UserManager.FindByNameAsync(User.Identity.Name);
@@ -17,22 +14,19 @@
 
 @section Styles
 {
-  @*  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">*@
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="Roles.css" />
 }
 
 @section Scripts
 {
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-    <script src="~/js/roles.js" type="text/javascript"></script>
-   
+    <script src="~/js/roles.js" type="text/javascript"></script>    
 }
    
-<h1>Data Table</h1>
-<table id="table" class="table" style="width:100%">
+<h1>Applicants</h1>
+<table id="table" class="display" style="width:100%">
     <thead>
         <tr>
             <th>Name</th>

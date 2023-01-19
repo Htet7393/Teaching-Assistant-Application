@@ -3414,3 +3414,6 @@ C:\Users\u1216649\Desktop\ASP\TAapplication\obj\Debug\net6.0\refint\TAapplicatio
 C:\Users\u1216649\Desktop\ASP\TAapplication\obj\Debug\net6.0\TAapplication.pdb
 C:\Users\u1216649\Desktop\ASP\TAapplication\obj\Debug\net6.0\TAapplication.genruntimeconfig.cache
 C:\Users\u1216649\Desktop\ASP\TAapplication\obj\Debug\net6.0\ref\TAapplication.dll
+C:\Users\u1216649\Desktop\ASP\TAapplication\obj\Debug\net6.0\scopedcss\Views\Admin\Roles.cshtml.rz.scp.css
+C:\Users\u1216649\Desktop\ASP\TAapplication\obj\Debug\net6.0\scopedcss\Views\Applications\Index.cshtml.rz.scp.css
+C:\Users\u1216649\Desktop\ASP\TAapplication\obj\Debug\net6.0\scopedcss\Views\Applications\List.cshtml.rz.scp.css
