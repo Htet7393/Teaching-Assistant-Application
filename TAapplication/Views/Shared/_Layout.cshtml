@@ -135,9 +135,11 @@
                                 {
                                     <li><a class="dropdown-item" asp-controller="Admin" asp-action="EnrollmentTrends">Enrollment Trend</a></li>
                                 }
-                                <li><a class="dropdown-item" asp-controller="Availability" asp-action="Index" asp-route-id="@avID">Availability</a></li>
+                                   <li><a class="dropdown-item" asp-controller="Availability" asp-action="Index" asp-route-id="@avID">Availability</a></li>
 
-                                   <li><a class="dropdown-item">PS6 &raquo;</a>
+
+                                <li>
+                                    <a class="dropdown-item" asp-controller="" asp-action="">PS6 &raquo;</a>
                                         <ul class="dropdown-menu submenu">
                                         @if (User.IsInRole("Administrator") || User.IsInRole("Professor"))
                                         {
@@ -151,7 +153,7 @@
                                         }
                                     </ul>
                                    </li>
-                                   <li><a class="dropdown-item">Applicantions  &raquo;</a> 
+                                   <li><a class="dropdown-item" asp-controller="" asp-action="">Applicantions  &raquo;</a> 
                                      <ul class="dropdown-menu submenu">
                                         <li><a asp-controller="Home" asp-action="Index" class="dropdown-item">Application Index</a></li>
                                         <li><a asp-controller="Applications" asp-action="List" class="dropdown-item">Application List</a></li>
@@ -192,7 +194,7 @@
                                 <li>
                                    @if (User.IsInRole("Administrator"))
                                     {
-                                        <a class="dropdown-item">ADMIN &raquo;</a>
+                                        <a class="dropdown-item" asp-controller="" asp-action="">ADMIN &raquo;</a>
                                         <ul class="dropdown-menu submenu">                                  
                                             <li><a asp-controller="Admin" asp-action="Roles" class="dropdown-item">Roles</a></li>
                                             <li><a asp-controller="Applications" asp-action="Index" class="dropdown-item">User List</a></li>
